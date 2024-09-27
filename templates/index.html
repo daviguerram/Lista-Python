@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div id="top-bar">
+        <h1>Listante</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <div id="form-container">
+        <input type="text" id="titulo" placeholder="Título da Tarefa">
+        <input type="text" id="descricao" placeholder="Descrição da Tarefa">
+        <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    </div>
+
+    <ul id="tarefas"></ul>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

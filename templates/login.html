@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="form-container">
+    <h1>Login - Listante</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li class="flash-{{ 'danger' if category == 'danger' else 'success' if category == 'success' else 'default' }}">
+                {{ message }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Nome de usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+    </div>
+
+    <p>Não tem uma conta? <a href="{{ url_for('register') }}">Registre-se aqui</a></p>
+
+</body>
+</html>
